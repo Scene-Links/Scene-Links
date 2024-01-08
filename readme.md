@@ -1,4 +1,4 @@
 # Scene Links by Scene Links
-The new graph visualizer to record and explore the history of your local music scene.
+Scene Graph is a new graph visualizer to display the relationships between objects with traits.
 
 In development Jan. 2023 - Present Day.
