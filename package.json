@@ -1,0 +1,12 @@
+{
+  "name": "band_graphs",
+  "version": "1.0.0",
+  "description": "hiiiiiii",
+  "main": "main.js",
+  "scripts": {
+    "test": "console.log(\"woof\")"
+  },
+  "author": "ccaassettee",
+  "license": "ISC",
+  "type": "module"
+}
