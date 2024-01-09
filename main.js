@@ -14,7 +14,6 @@ class Graph {
 
 const project = new Project("Earpiercindsinf");
 
-console.log("hi");
 console.log(project.name);
 console.log(project.members);
 
