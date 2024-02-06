@@ -1,4 +1,5 @@
-import {Node, Project, Musician, Label, Venue} from "./framework/nodes.js";
+import {Node, Data} from "./framework/nodes.js";
+import {Project, Musician, Label, Venue} from "./framework/nodes-custom.js";
 
 
 class Graph {
