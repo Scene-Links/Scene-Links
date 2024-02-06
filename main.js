@@ -1,5 +1,5 @@
-import {Node, Data} from "./framework/nodes.js";
-import {Project, Musician, Label, Venue} from "./framework/nodes-custom.js";
+import {Data, Node} from "./framework/nodes.js"
+import {Project, Musician, Label, Venue, ActivityStatuses} from "./framework/nodes-custom.js";
 
 
 class Graph {
@@ -13,12 +13,12 @@ class Graph {
 }
 
 
-const project = new Project("Earpiercindsinf");
+const project = new Node("Earpiercindsinf", new Project("rochester", "gay", ActivityStatuses.Active));
 
 console.log(project.name);
-console.log(project.members);
+console.log(project.data.bio);
 
-const cas = new Musician("cassingtonwoofington");
-project.addMember(cas);
+const cas = new Node("cassingtonwoofington", new Musician("rochester"));
+project.data.addMember(project, cas);
 
-console.log(project.members);
+console.log(project.links);

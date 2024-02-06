@@ -1,32 +1,35 @@
-import Data from "./nodes.js";
+import {Data} from "./nodes.js";
+import {Link, LinkTypes} from "./links.js"
 
-const ActivityStatuses = {
+export const ActivityStatuses = {
     Active: Symbol("active"),
     Inactive: Symbol("inactive"),
     InPlanning: Symbol("InPlanning"),
 }
 
 export class Project extends Data {
-    constructor(location, bio, activity=ActivityStatuses.Active, logo ="", hasCompleteInfo=false) {
-        super(location, bio, this.hasCompleteInfo)
+    constructor(location="", bio="", activity=ActivityStatuses.Active, logo ="", inPlanning = false, hasCompleteInfo=false) {
+        super(location, bio, hasCompleteInfo);
+
         this.activity = activity;
-        this.members = 0;
-        this.inPlanning = false;
         this.logo = logo;
+        this.inPlanning = inPlanning;
+
+        this.members = 0;
     }
 
-    addMember(musician, presentness =true) {
-        new Link(musician, this, LinkTypes.Membership, presentness);
+    addMember(parentNode, musician, presentness =true) {
+        new Link(musician, parentNode, LinkTypes.Membership, presentness);
         this.members++;
     }
 
-    addPerformer(musician, presentness =true) {
-        new Link(musician, this, LinkTypes.Membership, presentness);
+    addPerformer(parentNode, musician, presentness =true) {
+        new Link(musician, parentNode, LinkTypes.Membership, presentness);
     }
 }
 
 export class Musician extends Data {
-    constructor(hasCompleteInfo=false, location="", bio="") {
+    constructor(location="", bio="", hasCompleteInfo=false) {
         super(location, bio, hasCompleteInfo);
     }
 

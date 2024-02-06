@@ -1,4 +1,5 @@
-import {Node, Project, Musician, Label, Venue} from "./nodes.js";
+import {Node} from "./nodes.js";
+import {Project, Musician, Label, Venue} from "./nodes-custom.js"
 
 export const LinkTypes = {
     Membership: Symbol("membership present"),
@@ -18,7 +19,7 @@ export class Link {
 
         switch (type) {
             case LinkTypes.Membership: // musician -> project
-                if (! (nodeA instanceof Musician && nodeB instanceof Project)) {
+                if (! (nodeA.data instanceof Musician && nodeB.data instanceof Project)) {
                     throw new Error("meow");
                 }
 
@@ -26,8 +27,8 @@ export class Link {
                 break;
 
             case LinkTypes.PerformedWith: // musician/project -> musician/project
-                if (! ((nodeA instanceof Musician || nodeA instanceof Project) &&
-                    nodeB instanceof Musician || nodeB instanceof Project)) {
+                if (! ((nodeA.data instanceof Musician || nodeA.data instanceof Project) &&
+                    nodeB.data instanceof Musician || nodeB.data instanceof Project)) {
                     throw new Error("meow");
                 }
 
@@ -35,7 +36,7 @@ export class Link {
                 break;
 
             case LinkTypes.PlayedShowTogether: // project <-> project (same ticket but diff sets)
-                if (! (nodeA instanceof Project && nodeB instanceof Project)) {
+                if (! (nodeA.data instanceof Project && nodeB.data instanceof Project)) {
                     throw new Error("meow");
                 }
 
@@ -43,7 +44,7 @@ export class Link {
                 break;
 
             case LinkTypes.FeaturedOnRecording: // musician/project -> project
-                if (! ((nodeA instanceof Musician || nodeA instanceof Project) && nodeB instanceof Project)) {
+                if (! ((nodeA.data instanceof Musician || nodeA.data instanceof Project) && nodeB.data instanceof Project)) {
                     throw new Error("meow");
                 }
 
@@ -51,8 +52,8 @@ export class Link {
                 break;
 
             case CollaboratedOnRecording: // musician/project <-> musician/project
-                if (! ((nodeA instanceof Musician || nodeA instanceof Project) &&
-                    nodeB instanceof Musician || nodeB instanceof Project)) {
+                if (! ((nodeA.data instanceof Musician || nodeA.data instanceof Project) &&
+                    nodeB.data instanceof Musician || nodeB.data instanceof Project)) {
                     throw new Error("meow");
                 }
 
@@ -60,7 +61,7 @@ export class Link {
                 break;
     
             case SignedUnder: // project -> label
-                if (! (nodeA instanceof Project && nodeB instanceof Label)) {
+                if (! (nodeA.data instanceof Project && nodeB.data instanceof Label)) {
                     throw new Error("meow");
                 }
 
@@ -68,7 +69,7 @@ export class Link {
                 break;
 
             case PerformedAt: // musician/project -> venue
-                if (! (nodeA instanceof Project && nodeB instanceof Venue)) {
+                if (! (nodeA.data instanceof Project && nodeB.data instanceof Venue)) {
                     throw new Error("meow");
                 }
 

@@ -1,5 +1,3 @@
-import {Link, LinkTypes} from "./links.js";
-
 export class Node {
     static nextID = 0;
     constructor(name, data = new Data()) {
@@ -8,7 +6,7 @@ export class Node {
 
         this.name = name;
         this.data = data;
-        this.links = []
+        this.links = [];
     }
 
     addLink(link) {
