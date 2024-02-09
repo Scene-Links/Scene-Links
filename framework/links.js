@@ -1,8 +1,8 @@
 import {Node} from "./nodes.js";
-import {Project, Musician, Label, Venue} from "./nodes-custom.js"
+import {Project, Musician, Label, Venue} from "./data-custom.js"
 
 export const LinkTypes = {
-    Membership: Symbol("membership present"),
+    Membership: Symbol("membership"),
     PerformedWith: Symbol("performed with"),
     PlayedShowTogether: Symbol("played show together"),
     SignedUnder: Symbol("signed under"),
@@ -84,9 +84,9 @@ export class Link {
     }
     
     getNeighbor(currentNode) {
-        if (currentNode == nodeA) {
+        if (currentNode == this.nodeA) {
             return this.nodeB;
-        } else if (currentNode == nodeB) {
+        } else if (currentNode == this.nodeB) {
             return this.nodeA;
         } else {
             throw new Error("invalid method call")

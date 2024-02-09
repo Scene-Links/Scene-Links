@@ -7,6 +7,9 @@ export class Node {
         this.name = name;
         this.data = data;
         this.links = [];
+
+        data.parent = this;
+        data.logThisNode();
     }
 
     addLink(link) {
@@ -20,9 +23,11 @@ export class Node {
 
 export class Data {
     constructor(location="", bio="", hasCompleteInfo=false) {
-        this.hasCompleteInfo = hasCompleteInfo;
         this.location = location;
         this.bio = bio;
+        this.hasCompleteInfo = hasCompleteInfo;
+
+        this.parent;
     }
 }
 
