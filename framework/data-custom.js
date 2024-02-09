@@ -25,7 +25,7 @@ export class Project extends Data {
     }
 
     addPerformer(parentNode, musician, presentness =true) {
-        new Link(musician, parentNode, LinkTypes.Membership, presentness);
+        new Link(musician, parentNode, LinkTypes.PerformedWith, presentness);
     }
 }
 

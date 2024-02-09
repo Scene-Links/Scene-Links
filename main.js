@@ -1,6 +1,7 @@
 import {Data, Node} from "./framework/nodes.js"
 import {Project, Musician, Label, Venue} from "./framework/data-custom.js";
 import {constructGraph} from "./data-processing/interpereter.js";
+import { LinkTypes } from "./framework/links.js";
 
 
 class Graph {
@@ -11,6 +12,29 @@ class Graph {
     addNode(node) {
         this.nodes.push(node);
     }
+}
+
+function listByProject() {
+    let string = "";
+    Array.from(Project.allProjects.values()).forEach( (band) => {
+        string += band.name;
+        string += "\n";
+
+        band.links.forEach( (link) => {
+            if (link.presentness == null) {
+                string += link.getNeighbor(band).name + ", " + link.type;
+            } else if (link.presentness) {
+                string += link.getNeighbor(band).name + ", " + link.type + " (present)";
+            } else {
+                string += link.getNeighbor(band).name + ", " + link.type + " (past)";
+            }
+            string += "\n";
+        });
+
+        string += "\n";;
+    });
+
+    return string;
 }
 
 
@@ -27,12 +51,4 @@ class Graph {
 const graph = new Graph();
 constructGraph(graph, "all_nodes_sample_1.txt", "bands_sample_1.txt");
 
-setTimeout(() => {
-    Array.from(Project.allProjects.values()).forEach( (band) => {
-        console.log(band.name);
-        band.links.forEach( (link) => {
-            console.log(link.getNeighbor(band).name);
-        });
-        console.log('');
-    });
-}, 100);
+setTimeout(() => console.log(listByProject()), 100);

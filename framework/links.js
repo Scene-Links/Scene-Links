@@ -2,12 +2,12 @@ import {Node} from "./nodes.js";
 import {Project, Musician, Label, Venue} from "./data-custom.js"
 
 export const LinkTypes = {
-    Membership: Symbol("membership"),
-    PerformedWith: Symbol("performed with"),
-    PlayedShowTogether: Symbol("played show together"),
-    SignedUnder: Symbol("signed under"),
-    PerformedAt: Symbol("performed at"),
-    FeaturedOnRecording: Symbol("featured on")
+    Membership: "member",
+    PerformedWith: "performed with",
+    PlayedShowTogether: "played show together",
+    SignedUnder: "signed under",
+    PerformedAt: "performed at",
+    FeaturedOnRecording: "featured on"
 }
 
 export class Link {
@@ -15,7 +15,7 @@ export class Link {
         this.nodeA = nodeA;
         this.nodeB = nodeB;
 
-        this.presentness = presentness;
+        this.type = type;
 
         switch (type) {
             case LinkTypes.Membership: // musician -> project
@@ -23,6 +23,8 @@ export class Link {
                     throw new Error("meow");
                 }
 
+
+                this.presentness = presentness;
                 this.directedness = true;
                 break;
 
@@ -64,6 +66,7 @@ export class Link {
                 if (! (nodeA.data instanceof Project && nodeB.data instanceof Label)) {
                     throw new Error("meow");
                 }
+                this.presentness = presentness;
 
                 this.directedness = true;
                 break;
