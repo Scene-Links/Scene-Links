@@ -9,41 +9,41 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
 
         if (sections[0] != null) {  // first section: musicians
             sections[0].split('\n').forEach((name) => {
-                if (Musician.allMusicians.get(name) != null) {
+                if (Musician.allMusicians.get(name.trim()) != null) {
                     throw new Error ("duplicate musician in " + allNodesFileName + ": " + name);
                 }
 
-                graph.addNode(new Node(name, new Musician()));
+                graph.addNode(new Node(name.trim(), new Musician()));
             });
         }
         
         if (sections[1] != null) { //second section: projects (bands)
             sections[1].split('\n').forEach( (name) =>{
-                if (Project.allProjects.get(name) != null) {
+                if (Project.allProjects.get(name.trim()) != null) {
                     throw new Error ("duplicate project in " + allNodesFileName + ": " + name);
                 }
 
-                graph.addNode(new Node(name, new Project()));
+                graph.addNode(new Node(name.trim(), new Project()));
             });
         }
 
         if (sections[2] != null) { //third section: labels
             sections[2].split('\n').forEach( (name) =>{
-                if (Label.allLabels.get(name) != null) {
+                if (Label.allLabels.get(name.trim()) != null) {
                     throw new Error ("duplicate label in " + allNodesFileName + ": " + name);
                 }
 
-                graph.addNode(new Node(name, new Label()));
+                graph.addNode(new Node(name.trim(), new Label()));
             });
         }
 
         if (sections[3] != null) { //fourth sections: venues
             sections[3].split('\n').forEach( (name) =>{
-                if (Venue.allVenues.get(name) != null) {
+                if (Venue.allVenues.get(name.trim()) != null) {
                     throw new Error ("duplicate venue in " + allNodesFileName + ": " + name);
                 }
 
-                graph.addNode(new Node(name, new Venue()));
+                graph.addNode(new Node(name.trim(), new Venue()));
             });
         }
     });
@@ -54,6 +54,7 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
         bands.forEach( (band) => {
             const fields = band.split('\n');
             if (!Project.allProjects.has(fields[0])) {
+                console.log(band);
                 throw new Error("project '" + fields[0] + "' not in " + allNodesFileName);
             }
 
@@ -62,19 +63,26 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
             if (fields[1] != null) {
                 fields[1].split(',').forEach((personName) => {
                     if (!Musician.allMusicians.has(personName.trim())) {
-                        throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
+                        if (personName != "-") {
+                            console.log(band);
+                            throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
+                        }
+                    } else {
+                        bandNode.data.addMember(bandNode, Musician.allMusicians.get(personName.trim()), true);
                     }
-
-                    bandNode.data.addMember(bandNode, Musician.allMusicians.get(personName.trim()), true);
                 });
             }
 
             if (fields[2] != null) {
                 fields[2].split(',').forEach((personName) => {
                     if (!Musician.allMusicians.has(personName.trim())) {
-                        throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
+                        if(personName != "-") {
+                            console.log(band);
+                            throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
+                        }
+                    } else {
+                        bandNode.data.addMember(bandNode, Musician.allMusicians.get(personName.trim()), false);
                     }
-                    bandNode.data.addMember(bandNode, Musician.allMusicians.get(personName.trim()), false);
                 });
             }
             

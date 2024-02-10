@@ -49,6 +49,6 @@ function listByProject() {
 // console.log(project.links);
 
 const graph = new Graph();
-constructGraph(graph, "all_nodes_sample_1.txt", "bands_sample_1.txt");
+constructGraph(graph, "all_nodes.txt", "bands.txt");
 
 setTimeout(() => console.log(listByProject()), 100);
