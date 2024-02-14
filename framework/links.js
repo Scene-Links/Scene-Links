@@ -11,7 +11,11 @@ export const LinkTypes = {
 }
 
 export class Link {
+    static nextId = 0;
     constructor(nodeA, nodeB, type, presentness=true) {
+        this.id = Link.nextId;
+        Link.nextId += 1;
+
         this.nodeA = nodeA;
         this.nodeB = nodeB;
 

@@ -32,7 +32,7 @@ Grace, AJ, Natalie, Jaelin, Victor Jam Club
 
 Jerry Bigg's World Famous Band
 Yassir, Jared Effman, Maxwell Wakeling
-Laysa
+Laysa, Skye Carlin
 Victor Jam Club
 
 +2/-3
@@ -155,7 +155,7 @@ Cold Blue
 Mike Jam Club, Braley, Jess Panuccio, Jeff Gross
 
 Indecision
-Lucas, Ben Indecision, Shane, Calvin, Shane
+Lucas, Ben Indecision, Shane Indecision, Calvin, Gerrit
 Kaleb
 Ryan Keller, Joris Hoogendoorn
 
@@ -178,7 +178,7 @@ Faith To Fear
 Jay, Skye Carlin, Sam Klein, Mason Wahlers
 
 Slick Mick
-Michael Reineke
+Michael Reineke, Zack, Mike, Slick Nick
 
 Savage Henry
 Eli Feldman, Max Barron, Kyle, Reed
@@ -224,4 +224,8 @@ Calicuzns
 Jordan
 
 Soul Human
+-
 Mikey, Noah, Michael, Conor
+
+Obsidian Star
+Parker, Shane Indecision, Thomas, Bradley

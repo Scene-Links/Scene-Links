@@ -19,6 +19,14 @@ export class Node {
     setComplete(status=true) {
         this.hasCompleteInfo = status;
     }
+
+    equals(other) {
+        if (!other instanceof Node) {
+            return false;
+        } else {
+            return (this.id == other.id);
+        }
+    }
 }
 
 export class Data {

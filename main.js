@@ -1,7 +1,7 @@
 import {Data, Node} from "./framework/nodes.js"
 import {Project, Musician, Label, Venue} from "./framework/data-custom.js";
-import {constructGraph} from "./data-processing/interpereter.js";
-import { LinkTypes } from "./framework/links.js";
+import {constructGraph} from "./data-reading/interpereter.js";
+import { Link, LinkTypes } from "./framework/links.js";
 
 
 class Graph {
@@ -51,4 +51,9 @@ function listByProject() {
 const graph = new Graph();
 constructGraph(graph, "all_nodes.txt", "bands.txt");
 
-setTimeout(() => console.log(listByProject()), 100);
+setTimeout(() => {
+    console.log(listByProject());
+    console.log(Project.allProjects.size + " projects");
+    console.log(Musician.allMusicians.size + " musicians");
+    console.log(Link.nextId - 1 + " links");
+}, 500);

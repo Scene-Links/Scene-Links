@@ -85,6 +85,9 @@ John
 Alex Putz
 Skye Carlin
 Zackary Stulberg
+Zack
+Mike
+Slick Nick
 AJ Claiborne
 Andy Feck
 Evan Coppa
@@ -97,7 +100,7 @@ Adam Tully
 Aidan
 Ben Indecision
 Lucas
-Shane
+Shane Indecision
 Jenna
 Alex Eng
 Chloe Adams
@@ -147,6 +150,9 @@ Alex Dow
 Josh Grisworld
 Chase
 Tristian Weller
+Parker
+Thomas
+Bradley
 Max Klot
 Keija Helm
 Thomas Elmers
@@ -227,6 +233,7 @@ Safety Break
 Immortal 6
 Picknumberthreemylord
 Dead Pets
+Obsidian Star
 Calicuzns
 Soul Human
 Cosmic Microwave Basement
