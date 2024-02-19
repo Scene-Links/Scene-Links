@@ -7,9 +7,15 @@ export class Node {
         this.name = name;
         this.data = data;
         this.links = [];
+        
+        this.graph;
 
         data.parent = this;
         data.logThisNode();
+    }
+
+    setGraph(graph) {
+        this.graph = graph;
     }
 
     addLink(link) {

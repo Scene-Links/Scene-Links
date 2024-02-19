@@ -13,6 +13,18 @@ export class Graph {
     addNode(node) {
         this.nodes.push(node);
     }
+
+    getNodeByID(ID) {
+        if (this.nodes[ID].id == ID) { //assuming no fucky stuff
+            return this.nodes[ID]
+        } else {
+            for (graphNode in this.nodes) { //fucky stuff has ensued
+                if (graphNode.id == ID) {
+                    return graphNode;
+                }
+            }
+        }
+    }
 }
 
 function listByProject() {
@@ -57,6 +69,7 @@ setTimeout(() => {
     console.log(Project.allProjects.size + " projects");
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");
+    console.log(graph);
 
     writeFileSync('graph.json', JSON.stringify(graph), 'utf-8', (err) => {
         if (err) throw err;

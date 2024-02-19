@@ -19,13 +19,13 @@ export class Project extends Data {
         Project.allProjects.set(this.parent.name, this.parent);
     }
 
-    addMember(parentNode, musician, presentness =true) {
-        new Link(musician, parentNode, LinkTypes.Membership, presentness);
+    addMember(parentNode, musician, graph, presentness =true) {
+        new Link(musician, parentNode, LinkTypes.Membership, graph, presentness);
         this.members++;
     }
 
-    addPerformer(parentNode, musician, presentness =true) {
-        new Link(musician, parentNode, LinkTypes.PerformedWith, presentness);
+    addPerformer(parentNode, musician, graph, presentness =true) {
+        new Link(musician, parentNode, LinkTypes.PerformedWith, graph, presentness);
     }
 }
 
@@ -40,8 +40,8 @@ export class Musician extends Data {
         Musician.allMusicians.set(this.parent.name, this.parent);
     }
 
-    addProject(project, presentness=true) {
-        new Link(this, project, LinkTypes.Membership, presentness);
+    addProject(parent, project, graph, presentness=true) {
+        new Link(parent, project, LinkTypes.Membership, graph, presentness);
     }
 }
 

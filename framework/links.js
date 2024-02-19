@@ -12,12 +12,13 @@ export const LinkTypes = {
 
 export class Link {
     static nextId = 0;
-    constructor(nodeA, nodeB, type, presentness=true) {
+    constructor(nodeA, nodeB, type, graph, presentness=true) {
         this.id = Link.nextId;
         Link.nextId += 1;
 
-        this.nodeA = nodeA;
-        this.nodeB = nodeB;
+        this.nodeAID = nodeA.id;
+        this.nodeBID = nodeB.id;
+        this.graph = graph;
 
         this.type = type;
 
@@ -26,7 +27,6 @@ export class Link {
                 if (! (nodeA.data instanceof Musician && nodeB.data instanceof Project)) {
                     throw new Error("meow");
                 }
-
 
                 this.presentness = presentness;
                 this.directedness = true;
@@ -86,17 +86,20 @@ export class Link {
             default:
                 throw new Error("unknown type");
         }
-        this.nodeA.addLink(this);
-        this.nodeB.addLink(this);
+
+        nodeA.addLink(this);
+        nodeB.addLink(this);
     }
     
     getNeighbor(currentNode) {
-        if (currentNode == this.nodeA) {
-            return this.nodeB;
-        } else if (currentNode == this.nodeB) {
-            return this.nodeA;
+        if (currentNode.id == this.nodeAID) {
+            return this.graph.getNodeByID(this.nodeBID);
+
+        } else if (currentNode.id == this.nodeBID) {
+            return this.graph.getNodeByID(this.nodeAID);
+
         } else {
-            throw new Error("invalid method call")
+            throw new Error("invalid method call");
         }
     }
 }

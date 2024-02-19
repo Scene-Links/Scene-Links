@@ -49,54 +49,56 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
     });
 
     
-    const bandsFile = readFile("./data/" + bandsFileName, "utf-8", (err, data) => {
-        const bands = data.trim().split("\n\n");
-        bands.forEach( (band) => {
-            const fields = band.split('\n');
-            if (!Project.allProjects.has(fields[0])) {
-                console.log(band);
-                throw new Error("project '" + fields[0] + "' not in " + allNodesFileName);
-            }
-
-            const bandNode = Project.allProjects.get(fields[0].trim());
-            
-            if (fields[1] != null) {
-                fields[1].split(',').forEach((personName) => {
-                    if (!Musician.allMusicians.has(personName.trim())) {
-                        if (personName != "-") {
-                            console.log(band);
+    setTimeout(() => {
+        const bandsFile = readFile("./data/" + bandsFileName, "utf-8", (err, data) => {
+            const bands = data.trim().split("\n\n");
+            bands.forEach( (band) => {
+                const fields = band.split('\n');
+                if (!Project.allProjects.has(fields[0])) {
+                    console.log(band);
+                    throw new Error("project '" + fields[0] + "' not in " + allNodesFileName);
+                }
+    
+                const bandNode = Project.allProjects.get(fields[0].trim());
+                
+                if (fields[1] != null) {
+                    fields[1].split(',').forEach((personName) => {
+                        if (!Musician.allMusicians.has(personName.trim())) {
+                            if (personName != "-") {
+                                console.log(band);
+                                throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
+                            }
+                        } else {
+                            bandNode.data.addMember(bandNode, Musician.allMusicians.get(personName.trim()), graph, true);
+                        }
+                    });
+                }
+    
+                if (fields[2] != null) {
+                    fields[2].split(',').forEach((personName) => {
+                        if (!Musician.allMusicians.has(personName.trim())) {
+                            if(personName != "-") {
+                                console.log(band);
+                                throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
+                            }
+                        } else {
+                            bandNode.data.addMember(bandNode, Musician.allMusicians.get(personName.trim()), graph, false);
+                        }
+                    });
+                }
+                
+                if (fields[3] != null) {
+                    fields[3].split(',').forEach((personName) => {
+                        if (!Musician.allMusicians.has(personName.trim())) {
                             throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
                         }
-                    } else {
-                        bandNode.data.addMember(bandNode, Musician.allMusicians.get(personName.trim()), true);
-                    }
-                });
-            }
-
-            if (fields[2] != null) {
-                fields[2].split(',').forEach((personName) => {
-                    if (!Musician.allMusicians.has(personName.trim())) {
-                        if(personName != "-") {
-                            console.log(band);
-                            throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
-                        }
-                    } else {
-                        bandNode.data.addMember(bandNode, Musician.allMusicians.get(personName.trim()), false);
-                    }
-                });
-            }
-            
-            if (fields[3] != null) {
-                fields[3].split(',').forEach((personName) => {
-                    if (!Musician.allMusicians.has(personName.trim())) {
-                        throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
-                    }
-
-                    bandNode.data.addPerformer(bandNode, Musician.allMusicians.get(personName.trim()), true);
-                });
-            }
-            
-            graph.addNode()
+    
+                        bandNode.data.addPerformer(bandNode, Musician.allMusicians.get(personName.trim()), graph);
+                    });
+                }
+                
+                graph.addNode(bandNode);
+            });
         });
-    });
+    }, 100);
 }

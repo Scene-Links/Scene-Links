@@ -1,5 +1,5 @@
 Cas Savage
-Bea O'Brian
+Bea O'Brien
 Anthony Wilcox
 Joshua Yoder
 Jackson Majewski
@@ -54,7 +54,6 @@ Ben OLD
 Nick
 Greg Jam Club
 Gabi
-Sam Owen
 Daniel
 Ricardo
 Troy
@@ -163,6 +162,11 @@ Caden
 Quincy
 Jordan
 Luke
+DJ
+Nathan Benjamin
+Sam Owen
+Maya
+Ethan
 Zach Adams
 Stevie Skvarek
 Ryan Richter
@@ -237,3 +241,4 @@ Obsidian Star
 Calicuzns
 Soul Human
 Cosmic Microwave Basement
+Skitzo
