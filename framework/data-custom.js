@@ -16,12 +16,18 @@ export class Project extends Data {
     }
 
     logThisNode() {
-        Project.allProjects.set(this.parent.name, this.parent);
+        Project.allProjects.set(
+            this.graph.getNodeByID(this.parentID).name,
+            this.graph.getNodeByID(this.parentID)
+            );
     }
 
     addMember(parentNode, musician, graph, presentness =true) {
         new Link(musician, parentNode, LinkTypes.Membership, graph, presentness);
-        this.members++;
+
+        if (presentness) {
+            this.members++;
+        }
     }
 
     addPerformer(parentNode, musician, graph, presentness =true) {
@@ -37,7 +43,10 @@ export class Musician extends Data {
     }
 
     logThisNode() {
-        Musician.allMusicians.set(this.parent.name, this.parent);
+        Musician.allMusicians.set(
+            this.graph.getNodeByID(this.parentID).name,
+            this.graph.getNodeByID(this.parentID)
+            );
     }
 
     addProject(parent, project, graph, presentness=true) {
@@ -54,7 +63,10 @@ export class Label extends Data {
     }
 
     logThisNode() {
-        Label.allLabels.set(this.parent.name, this.parent);
+        Label.allLabels.set(
+            this.graph.getNodeByID(this.parentID).name,
+            this.graph.getNodeByID(this.parentID)
+            );
     }
 }
 
@@ -67,6 +79,9 @@ export class Venue extends Data {
     }
 
     logThisNode() {
-        Venue.allVenues.set(this.parent.name, this.parent);
+        Venue.allVenues.set(
+            this.graph.getNodeByID(this.parentID).name,
+            this.graph.getNodeByID(this.parentID)
+            );
     }
 }

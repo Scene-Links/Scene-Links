@@ -10,12 +10,13 @@ export class Node {
         
         this.graph;
 
-        data.parent = this;
-        data.logThisNode();
+        data.parentID = this.id;
+        // data.logThisNode(); //call this in graph
     }
 
     setGraph(graph) {
         this.graph = graph;
+        this.data.setGraph(graph);
     }
 
     addLink(link) {
@@ -41,7 +42,12 @@ export class Data {
         this.bio = bio;
         this.hasCompleteInfo = hasCompleteInfo;
 
-        this.parent;
+        this.graph;
+        this.parentID;
+    }
+
+    setGraph(graph) {
+        this.graph = graph;
     }
 }
 

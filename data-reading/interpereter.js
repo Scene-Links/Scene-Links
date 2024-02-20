@@ -100,5 +100,5 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
                 graph.addNode(bandNode);
             });
         });
-    }, 100);
+    }, 50);
 }

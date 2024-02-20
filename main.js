@@ -4,6 +4,8 @@ import {constructGraph} from "./data-reading/interpereter.js";
 import { Link, LinkTypes } from "./framework/links.js";
 import { writeFileSync } from "fs";
 
+const GRAPH_NAME = "__graph__";
+
 
 export class Graph {
     constructor() {
@@ -11,7 +13,10 @@ export class Graph {
     }
 
     addNode(node) {
+        node.setGraph(this);
         this.nodes.push(node);
+
+        node.data.logThisNode();
     }
 
     getNodeByID(ID) {
@@ -24,6 +29,20 @@ export class Graph {
                 }
             }
         }
+    }
+
+    getString() {
+        return JSON.stringify(graph, (key, value) => {
+            if (key == "") { //looking at the graph as a whole
+                return value;
+            } else {
+                if (value == graph) {
+                    return GRAPH_NAME;
+                } else {
+                    return value;
+                }
+            }
+        });
     }
 }
 
@@ -51,15 +70,6 @@ function listByProject() {
 }
 
 
-// const project = new Node("Earpiercindsinf", new Project("rochester", "gay"));
-
-// console.log(project.name);
-// console.log(project.data.bio);
-
-// const cas = new Node("cassingtonwoofington", new Musician("rochester"));
-// project.data.addMember(project, cas);
-
-// console.log(project.links);
 
 export const graph = new Graph();
 constructGraph(graph, "all_nodes.txt", "bands.txt");
@@ -69,10 +79,10 @@ setTimeout(() => {
     console.log(Project.allProjects.size + " projects");
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");
-    console.log(graph);
 
-    writeFileSync('graph.json', JSON.stringify(graph), 'utf-8', (err) => {
-        if (err) throw err;
-        console.log('Data added to file');
-      });
+    writeFileSync('graph.json', graph.getString(), 'utf-8', (err) => {
+            if (err) throw err;
+            console.log('Data added to file');
+      }
+    );
 }, 100);
