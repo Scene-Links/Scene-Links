@@ -1,8 +1,3 @@
-import { Musician, Project, Venue, Label } from "../framework/data-custom.js";
-import { Link, LinkTypes} from "../framework/links.js";
-import { Data, Node} from "../framework/nodes.js";
-import { Graph, graph } from "./main.js";
-
 let canvas = document.getElementById("canvas");
 const infoText = document.getElementById("info");
 const ctx = canvas.getContext("2d");

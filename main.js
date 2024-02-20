@@ -74,15 +74,20 @@ function listByProject() {
 export const graph = new Graph();
 constructGraph(graph, "all_nodes.txt", "bands.txt");
 
-setTimeout(() => {
-    console.log(listByProject());
+setTimeout(async () => {
     console.log(Project.allProjects.size + " projects");
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");
 
-    writeFileSync('graph.json', graph.getString(), 'utf-8', (err) => {
+    writeFileSync('./graph-json/graph.json', graph.getString(), 'utf-8', (err) => {
             if (err) throw err;
             console.log('Data added to file');
       }
     );
+    
+    fetch("./graph-json/graph.json")
+    .then(response => {
+       return response.json();
+    })
+    .then(data => console.log(data));
 }, 100);
