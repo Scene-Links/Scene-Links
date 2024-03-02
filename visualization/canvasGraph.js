@@ -15,17 +15,17 @@ const MUSICIAN_FONT_SIZE = 10;
 const ACTIVE_TEXT_COLOR = "White";
 const INACTIVE_TEXT_COLOR = "DimGray";
 
-const ACTIVE_MEMBER_LINK_COLOR = "Red";
+const ACTIVE_MEMBER_LINK_COLOR = "Crimson";
 const INACTIVE_MEMBER_LINK_COLOR = "DarkSlateGray";
-const PERFORMED_WITH_LINK_COLOR = "Sienna";
+const PERFORMED_WITH_LINK_COLOR = "Indigo";
 
 //physics
-const PRESENT_MEMBER_STRENGTH = 0.1;
+const PRESENT_MEMBER_STRENGTH = 0.08;
 const PAST_MEMBER_STRENGTH = 0.05;
 const PERFORMED_WITH_STRENGTH = 0.01;
-const LINK_LENGTH = 15;
-const NODE_REPULSION = 10000;
-const BAND_BAND_REPULSION = 4; // multiplied on top of node repulsion
+// const LINK_LENGTH = 0; // dont rly need this one any more I think??
+const NODE_REPULSION = 18000;
+const BAND_BAND_REPULSION = 8; // multiplied on top of node repulsion
 
 //visualization settings
 const INCLUDE_PERFORMED_WITH = true;
@@ -139,9 +139,9 @@ class DrawnLink {
         const startNode = onScreenNodes.get(this.startID);
         const endNode = onScreenNodes.get(this.endID)
 
-        const length_difference = (this.length() -
-            (LINK_LENGTH // + 3 * (startNode.element.links.length + endNode.element.links.length)
-            ));
+        const length_difference = (this.length()
+            //- (LINK_LENGTH + 3 * (startNode.element.links.length + endNode.element.links.length))
+            );
 
         let change;
 
