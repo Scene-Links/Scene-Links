@@ -7,7 +7,8 @@ export class Node {
         this.name = name;
         this.data = data;
         this.links = [];
-        
+
+        this.type = data.type;
         this.graph;
 
         data.parentID = this.id;
@@ -37,9 +38,10 @@ export class Node {
 }
 
 export class Data {
-    constructor(location="", bio="", hasCompleteInfo=false) {
+    constructor(location="", bio="", active=true, hasCompleteInfo=false) {
         this.location = location;
         this.bio = bio;
+        this.active = active;
         this.hasCompleteInfo = hasCompleteInfo;
 
         this.graph;
@@ -48,6 +50,17 @@ export class Data {
 
     setGraph(graph) {
         this.graph = graph;
+    }
+
+    checkActivity() {
+        this.active = false; //guilty til proven innocent
+
+        const parent = this.graph.getNodeByID(this.parentID);
+        parent.links.forEach((link) => {
+            if (link.presentness) {
+                this.active = true;
+            }
+        });
     }
 }
 

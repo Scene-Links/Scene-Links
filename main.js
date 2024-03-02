@@ -44,6 +44,10 @@ export class Graph {
             }
         });
     }
+
+    checkActivityAll() {
+        this.nodes.forEach( (node) => node.data.checkActivity())
+    }
 }
 
 function listByProject() {
@@ -72,22 +76,18 @@ function listByProject() {
 
 
 export const graph = new Graph();
+
 constructGraph(graph, "all_nodes.txt", "bands.txt");
 
 setTimeout(async () => {
+    graph.listByProject;
     console.log(Project.allProjects.size + " projects");
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");
 
     writeFileSync('./graph-json/graph.json', graph.getString(), 'utf-8', (err) => {
             if (err) throw err;
-            console.log('Data added to file');
       }
     );
-    
-    fetch("./graph-json/graph.json")
-    .then(response => {
-       return response.json();
-    })
-    .then(data => console.log(data));
+    console.log('Data added to file');
 }, 100);

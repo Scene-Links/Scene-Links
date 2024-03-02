@@ -63,11 +63,11 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
                 
                 if (fields[1] != null) {
                     fields[1].split(',').forEach((personName) => {
-                        if (!Musician.allMusicians.has(personName.trim())) {
-                            if (personName != "-") {
+                        if (!Musician.allMusicians.has(personName.trim())) { //if not in database
+                            if (personName != "-") { //if spot left empty
                                 console.log(band);
                                 throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
-                            }
+                            };
                         } else {
                             bandNode.data.addMember(bandNode, Musician.allMusicians.get(personName.trim()), graph, true);
                         }

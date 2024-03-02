@@ -6,13 +6,14 @@ export class Project extends Data {
     static allProjects = new Map();
 
     constructor(location="", bio="", active=true, logo ="", inPlanning = false, hasCompleteInfo=false) {
-        super(location, bio, hasCompleteInfo);
+        super(location, bio, active, hasCompleteInfo);
 
-        this.active = active;
         this.logo = logo;
         this.inPlanning = inPlanning;
 
         this.members = 0;
+        
+        this.type = "Project";
     }
 
     logThisNode() {
@@ -38,8 +39,9 @@ export class Project extends Data {
 export class Musician extends Data {
     static allMusicians = new Map();
 
-    constructor(location="", bio="", hasCompleteInfo=false) {
-        super(location, bio, hasCompleteInfo);
+    constructor(location="", bio="", active=true, hasCompleteInfo=false) {
+        super(location, bio, active, hasCompleteInfo);
+        this.type = "Musician"
     }
 
     logThisNode() {
@@ -57,9 +59,9 @@ export class Musician extends Data {
 export class Label extends Data {
     static allLabels = new Map();
 
-    constructor(location="", bio="", hasCompleteInfo=false, active=true) {
-        super(location, bio, hasCompleteInfo);
-        this.active = active;
+    constructor(location="", bio="",  active=true, hasCompleteInfo=false) {
+        super(location, bio, active, hasCompleteInfo);
+        this.type = "Label";
     }
 
     logThisNode() {
@@ -73,9 +75,9 @@ export class Label extends Data {
 export class Venue extends Data {
     static allVenues = new Map();
 
-    constructor(location="", bio="", active =true, hasCompleteInfo=false) {
-        super(location, bio, hasCompleteInfo);
-        this.active = active;
+    constructor(location="", bio="", active=true, hasCompleteInfo=false) {
+        super(location, bio, active, hasCompleteInfo);
+        this.type = "Venue";
     }
 
     logThisNode() {
