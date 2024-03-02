@@ -46,14 +46,24 @@ export class Graph {
     }
 
     checkActivityAll() {
-        this.nodes.forEach( (node) => node.data.checkActivity())
+        this.nodes.forEach( (node) => {
+            node.data.checkActivity();
+        });
     }
 }
 
 function listByProject() {
     let string = "";
+
     Array.from(Project.allProjects.values()).forEach( (band) => {
         string += band.name;
+
+        if (band.data.active) {
+            string += " (active)";
+        } else {
+            string += " (inactive)";
+        }
+
         string += "\n";
 
         band.links.forEach( (link) => {
@@ -79,8 +89,10 @@ export const graph = new Graph();
 
 constructGraph(graph, "all_nodes.txt", "bands.txt");
 
-setTimeout(async () => {
-    graph.listByProject;
+setTimeout(async () => { //wait for construct graph to finish ig. be patient shes got erectile dysfunction just like me frfr
+    graph.checkActivityAll();
+
+    console.log(listByProject());
     console.log(Project.allProjects.size + " projects");
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");

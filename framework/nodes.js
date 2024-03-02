@@ -56,9 +56,11 @@ export class Data {
         this.active = false; //guilty til proven innocent
 
         const parent = this.graph.getNodeByID(this.parentID);
+
         parent.links.forEach((link) => {
             if (link.presentness) {
                 this.active = true;
+                // return;
             }
         });
     }
