@@ -28,8 +28,9 @@ const NODE_REPULSION = 18000;
 const BAND_BAND_REPULSION = 8; // multiplied on top of node repulsion
 
 //visualization settings
-const INCLUDE_PERFORMED_WITH = true;
-const INCLUDE_PAST_MEMBERS = true;
+let INCLUDE_PERFORMED_WITH = true;
+let INCLUDE_PAST_MEMBERS = true;
+let SHOW_INACTIVES = true;
 
 
 
@@ -177,6 +178,9 @@ class DrawnLink {
 }
 
 function initializeNode(node) {
+    if (!SHOW_INACTIVES && !node.data.active) { // disclude inactive nodes if set to do so
+        return;
+    }
     if (!onScreenNodes.has(node.id)) {
         onScreenNodes.set(node.id, new DrawnNode(node));
         onScreenNodes.get(node.id).setRandomPosition();
@@ -205,6 +209,7 @@ function moveScreenCenter() {
 }
 
 function initializeLink(link) { //sets up, does not draw
+
     if (!INCLUDE_PAST_MEMBERS && link.type == "member" && !link.presentness) { // disclude past memberships if set to do so
         return;
     }
@@ -224,8 +229,6 @@ function initializeLink(link) { //sets up, does not draw
 // }
 
 function initialize() {
-    ctx.fillStyle ='white';
-    ctx.fillText("meow", 100, 100);
 
     for (let i = 0; i < graph.nodes.length; i++) {
         const node = graph.nodes[i];
@@ -301,4 +304,56 @@ if (animate) {
     window.requestAnimationFrame(render);
 } else {
     draw();
+}
+
+
+//buttonography
+
+function togglePastConnections() {
+    const button = document.getElementById("togglePast")
+    
+    onScreenLinks.clear();
+
+    if (INCLUDE_PAST_MEMBERS) {
+        INCLUDE_PAST_MEMBERS = false;
+        button.innerHTML = "Show Past Connections";
+    } else {
+        INCLUDE_PAST_MEMBERS = true;
+        button.innerHTML = "Hide Past Connections";
+    }
+
+    //now just add the right links in
+    for (let i = 0; i < graph.nodes.length; i++) {
+        const node = graph.nodes[i];
+
+        for (let j = 0; j < node.links.length; j++) {
+            const link = node.links[j];
+            initializeLink(link);
+        }
+    }
+}
+
+function togglePerformedWith() {
+
+    const button = document.getElementById("togglePerformed")
+    
+    onScreenLinks.clear(); //remove all links
+
+    if (INCLUDE_PERFORMED_WITH) {
+        INCLUDE_PERFORMED_WITH = false;
+        button.innerHTML = "Show Associated Performers";
+    } else {
+        INCLUDE_PERFORMED_WITH = true;
+        button.innerHTML = "Hide Associated Performers";
+    }
+
+    //now just add the right links in
+    for (let i = 0; i < graph.nodes.length; i++) {
+        const node = graph.nodes[i];
+
+        for (let j = 0; j < node.links.length; j++) {
+            const link = node.links[j];
+            initializeLink(link);
+        }
+    }
 }
