@@ -51,9 +51,9 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
     
     setTimeout(() => {
         const bandsFile = readFile("./data/" + bandsFileName, "utf-8", (err, data) => {
-            const bands = data.trim().split("\n\n");
+            const bands = data.trim().split("+\n").slice(1);
             bands.forEach( (band) => {
-                const fields = band.split('\n');
+                const fields = band.trim().split('\n');
                 if (!Project.allProjects.has(fields[0])) {
                     console.log(band);
                     throw new Error("project '" + fields[0] + "' not in " + allNodesFileName);
@@ -88,13 +88,21 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
                 }
                 
                 if (fields[3] != null) {
+                    console.log(fields[3])
                     fields[3].split(',').forEach((personName) => {
+                        console.log(fields[3])
                         if (!Musician.allMusicians.has(personName.trim())) {
-                            throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
+                            if(personName != "-") {
+                                throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
+                            }
+                        } else {
+                            bandNode.data.addPerformer(bandNode, Musician.allMusicians.get(personName.trim()), graph);
                         }
-    
-                        bandNode.data.addPerformer(bandNode, Musician.allMusicians.get(personName.trim()), graph);
                     });
+                }
+
+                if (fields[4] != null && fields[4] != "-") {
+                    bandNode.data.imagePath = fields[4].trim();
                 }
                 
                 graph.addNode(bandNode);

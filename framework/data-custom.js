@@ -5,8 +5,8 @@ import {Link, LinkTypes} from "./links.js"
 export class Project extends Data {
     static allProjects = new Map();
 
-    constructor(location="", bio="", active=true, logo ="", inPlanning = false, hasCompleteInfo=false) {
-        super(location, bio, active, hasCompleteInfo);
+    constructor(location="", bio="", active=true, logo ="", inPlanning = false, hasCompleteInfo=false, imagePath="", hyperLinks=[]) {
+        super(location, bio, active, hasCompleteInfo, imagePath, hyperLinks);
 
         this.logo = logo;
         this.inPlanning = inPlanning;
@@ -39,8 +39,8 @@ export class Project extends Data {
 export class Musician extends Data {
     static allMusicians = new Map();
 
-    constructor(location="", bio="", active=true, hasCompleteInfo=false) {
-        super(location, bio, active, hasCompleteInfo);
+    constructor(location="", bio="", active=true, hasCompleteInfo=false, imagePath="", hyperLinks=[]) {
+        super(location, bio, active, hasCompleteInfo, imagePath, hyperLinks);
         this.type = "Musician"
     }
 
@@ -59,8 +59,8 @@ export class Musician extends Data {
 export class Label extends Data {
     static allLabels = new Map();
 
-    constructor(location="", bio="",  active=true, hasCompleteInfo=false) {
-        super(location, bio, active, hasCompleteInfo);
+    constructor(location="", bio="",  active=true, hasCompleteInfo=false, imagePath="", hyperLinks=[]) {
+        super(location, bio, active, hasCompleteInfo, imagePath, hyperLinks);
         this.type = "Label";
     }
 
@@ -75,8 +75,8 @@ export class Label extends Data {
 export class Venue extends Data {
     static allVenues = new Map();
 
-    constructor(location="", bio="", active=true, hasCompleteInfo=false) {
-        super(location, bio, active, hasCompleteInfo);
+    constructor(location="", bio="", active=true, hasCompleteInfo=false, imagePath="", hyperLinks=[]) {
+        super(location, bio, active, hasCompleteInfo, imagePath, hyperLinks);
         this.type = "Venue";
     }
 

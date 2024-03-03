@@ -99,7 +99,7 @@ setTimeout(async () => { //wait for construct graph to finish ig. be patient she
 
     writeFileSync('./graph-json/graph.json', graph.getString(), 'utf-8', (err) => {
             if (err) throw err;
-      }
+        }
     );
     console.log('Data added to file');
 }, 100);
