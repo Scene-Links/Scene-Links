@@ -94,7 +94,8 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
                                 throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
                             }
                         } else {
-                            bandNode.data.addPerformer(bandNode, Musician.allMusicians.get(personName.trim()), graph);
+                            bandNode.data.checkActivity();
+                            bandNode.data.addPerformer(bandNode, Musician.allMusicians.get(personName.trim()), graph, bandNode.data.activity);
                         }
                     });
                 }

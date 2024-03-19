@@ -2,7 +2,9 @@ import {Data, Node} from "./framework/nodes.js"
 import {Project, Musician, Label, Venue} from "./framework/data-custom.js";
 import {constructGraph} from "./data-reading/interpereter.js";
 import { Link, LinkTypes } from "./framework/links.js";
+
 import { findDegree, tallyDegrees } from "./processing/processing.js";
+import { tallyActiveMembersPerProject, tallyActiveProjectMembershipPerPerson } from "./processing/statistics.js";
 
 import { writeFileSync } from "fs";
 
@@ -91,7 +93,7 @@ export const graph = new Graph();
 
 constructGraph(graph, "all_nodes.txt", "bands.txt");
 
-setTimeout(async () => { //wait for construct graph to finish ig. be patient shes got erectile dysfunction just like me frfr
+setTimeout(async () => { //wait for construct graph to finish ig. be patient shes got erectile dysfunction
     graph.checkActivityAll();
 
     // console.log(listByProject());
@@ -105,6 +107,12 @@ setTimeout(async () => { //wait for construct graph to finish ig. be patient she
     );
     console.log('Data added to file');
 
-    console.log(tallyDegrees(graph, [Musician]));
-    console.log(tallyDegrees(graph, [Project]));
+    console.log("distribution of connections per musician: " +
+                tallyDegrees(graph, (node) => {return node.data instanceof Musician}));
+
+    console.log("distribution of connections per project: " +
+                tallyDegrees(graph, (node) => {return node.data instanceof Project}));
+                
+    console.log("distribution of members in a band: " + tallyActiveMembersPerProject(graph));
+    console.log("distribution of active bands memberships per musician: " + tallyActiveProjectMembershipPerPerson(graph));
 }, 100);

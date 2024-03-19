@@ -3,7 +3,7 @@ import { Link, LinkTypes} from "../framework/links.js";
 import { Data, Node} from "../framework/nodes.js";
 
 //bread first search mmmmmmmmmm yummy
-function findDistance(startNode, endNode, validconnections=["member"]) {
+function findDistance(startNode, endNode, connectionValidator= () => {return true}) {
     const queue = [];
     const nodeMap = new Map();
 
@@ -14,35 +14,42 @@ function findDistance(startNode, endNode, validconnections=["member"]) {
     }
 }
 
-export function findDegree(node, validconnections=["member"]) {
+export function findDegree(node, connectionValidator= () => {return true}) {
     let degree = 0;
 
     node.links.forEach( (link) => {
-        if (validconnections.includes(link.type)) {
+        if (connectionValidator(link)) {
             degree += 1;
         }
     });
 
+    // console.log(degree);
+    // console.log(node.name);
     return degree;
 }
 
-export function tallyDegrees(graph, nodeTypes=[Musician, Project, Label, Venue], validconnections=["member"]) {
-    const barGraph = new Map();
+export function tallyDegrees(graph, nodeValidator= () => {return true}, connectionValidator= () => {return true}) {
+    const tallies = [];
 
     graph.nodes.forEach( (node) => {
-        //check is node is right type
-        nodeTypes.forEach( (type) => {
-            if (node.data instanceof type) {
-                const nodeDegree = findDegree(node, validconnections);
+        if (nodeValidator(node)) {
+            const nodeDegree = findDegree(node, connectionValidator);
 
-                if (barGraph.has(nodeDegree)) {
-                    barGraph.set(nodeDegree, barGraph.get(nodeDegree) + 1);
-                } else {
-                    barGraph.set(nodeDegree, 1);
-                }
+            //put into tally
+            if (typeof tallies[nodeDegree] == "number") {
+                tallies[nodeDegree] = tallies[nodeDegree] + 1;
+            } else {
+                tallies[nodeDegree] = 1;
             }
-        });
+        }
     })
+    
+    //fill in gaps
+    for (let i = 0; i < tallies.length; i++) {
+        if (tallies[i] == undefined) {
+            tallies[i] = 0;
+        }
+    }
 
-    return barGraph;
+    return tallies;
 }
