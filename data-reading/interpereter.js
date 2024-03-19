@@ -88,9 +88,7 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
                 }
                 
                 if (fields[3] != null) {
-                    console.log(fields[3])
                     fields[3].split(',').forEach((personName) => {
-                        console.log(fields[3])
                         if (!Musician.allMusicians.has(personName.trim())) {
                             if(personName != "-") {
                                 throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);

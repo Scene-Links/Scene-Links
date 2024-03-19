@@ -2,6 +2,8 @@ import {Data, Node} from "./framework/nodes.js"
 import {Project, Musician, Label, Venue} from "./framework/data-custom.js";
 import {constructGraph} from "./data-reading/interpereter.js";
 import { Link, LinkTypes } from "./framework/links.js";
+import { findDegree, tallyDegrees } from "./processing/processing.js";
+
 import { writeFileSync } from "fs";
 
 const GRAPH_NAME = "__graph__";
@@ -92,7 +94,7 @@ constructGraph(graph, "all_nodes.txt", "bands.txt");
 setTimeout(async () => { //wait for construct graph to finish ig. be patient shes got erectile dysfunction just like me frfr
     graph.checkActivityAll();
 
-    console.log(listByProject());
+    // console.log(listByProject());
     console.log(Project.allProjects.size + " projects");
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");
@@ -102,4 +104,7 @@ setTimeout(async () => { //wait for construct graph to finish ig. be patient she
         }
     );
     console.log('Data added to file');
+
+    console.log(tallyDegrees(graph, [Musician]));
+    console.log(tallyDegrees(graph, [Project]));
 }, 100);
