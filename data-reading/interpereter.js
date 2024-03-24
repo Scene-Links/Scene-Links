@@ -104,7 +104,7 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
                     bandNode.data.imagePath = fields[4].trim();
                 }
                 
-                graph.addNode(bandNode);
+                // graph.addNode(bandNode);
             });
         });
     }, 50);
