@@ -3,15 +3,40 @@ import { Link, LinkTypes} from "../framework/links.js";
 import { Data, Node} from "../framework/nodes.js";
 
 //bread first search mmmmmmmmmm yummy
-function findDistance(startNode, endNode, connectionValidator= () => {return true}) {
+export function findPath(startNode, endNode, connectionValidator= () => {return true}) {
     const queue = [];
     const nodeMap = new Map();
 
     nodeMap.set(startNode, null);
+    queue.push(startNode);
+
+    let currentNode;
 
     while (queue.length > 0) {
+        currentNode = queue.shift();
 
+        //compile list
+        if (currentNode.equals(endNode)) {
+            const path = [];
+
+            while (currentNode != null) {
+                path.splice(0, 0, currentNode);
+                currentNode = nodeMap.get(currentNode);
+            }
+
+            return path;
+        }
+
+        currentNode.links.forEach((link) => {
+            const otherNode = link.getNeighbor(currentNode);
+            
+            if (!nodeMap.has(otherNode)) {
+                nodeMap.set(otherNode, currentNode);
+                queue.push(otherNode);
+            }
+        })
     }
+    return [];
 }
 
 export function findDegree(node, connectionValidator= () => {return true}) {
