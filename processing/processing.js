@@ -48,8 +48,6 @@ export function findDegree(node, connectionValidator= () => {return true}) {
         }
     });
 
-    // console.log(degree);
-    // console.log(node.name);
     return degree;
 }
 
