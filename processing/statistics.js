@@ -1,7 +1,7 @@
 import { Link, LinkTypes} from "../framework/links.js";
 import { Musician, Project, Venue, Label } from "../framework/data-custom.js";
 
-import {findDegree, tallyDegrees, findPath} from "./processing.js";
+import {findDegree, tallyDegrees, findPath, countNeighbors} from "./processing.js";
 
 export function tallyActiveProjectMembershipPerPerson (graph) {
     return tallyDegrees(graph,

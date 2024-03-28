@@ -76,3 +76,24 @@ export function tallyDegrees(graph, nodeValidator= () => {return true}, connecti
 
     return tallies;
 }
+
+//counts neighbors of the same type of a node
+export function countNeighbors(node) {
+    const type = node.data.type;
+
+    const neighborIDs = [node.id];
+
+    node.links.forEach( (link) => {
+        const otherNode = link.getNeighbor(node);
+
+        otherNode.links.forEach( (link2) => {
+            const otherotherNode = link2.getNeighbor(otherNode);
+
+            if (!neighborIDs.includes(otherotherNode.id) && type == otherotherNode.data.type) {
+                neighborIDs.push(otherotherNode.id);
+            }
+        });
+    });
+    
+    return neighborIDs.length - 1;
+}

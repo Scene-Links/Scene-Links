@@ -3,7 +3,7 @@ import {Project, Musician, Label, Venue} from "./framework/data-custom.js";
 import {constructGraph} from "./data-reading/interpereter.js";
 import { Link, LinkTypes } from "./framework/links.js";
 
-import { findDegree, tallyDegrees, findPath } from "./processing/processing.js";
+import { findDegree, tallyDegrees, findPath, countNeighbors} from "./processing/processing.js";
 import { tallyActiveMembersPerProject, tallyActiveProjectMembershipPerPerson, tallyMinDistances } from "./processing/statistics.js";
 
 import { writeFileSync } from "fs";
@@ -73,7 +73,7 @@ function listByProject() {
         string += "\n";
         string += "\t active members: " + findDegree(band, (link) => {return (link.type == LinkTypes.Membership && link.presentness == true)});
         string += "\n";
-        string += "\t connected bands: "
+        string += "\t connected bands: " + countNeighbors(band);
         string += "\n"
 
         band.links.forEach( (link) => {
@@ -103,7 +103,7 @@ constructGraph(graph, "all_nodes.txt", "bands.txt");
 setTimeout(async () => { //wait for construct graph to finish ig. be patient shes got erectile dysfunction
     graph.checkActivityAll();
 
-    console.log(listByProject());
+    // console.log(listByProject());
     console.log(Project.allProjects.size + " projects");
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");
@@ -123,12 +123,14 @@ setTimeout(async () => { //wait for construct graph to finish ig. be patient she
     console.log("distribution of members in a band: " +
                 tallyActiveMembersPerProject(graph, (node) => {return node.data.active}));
 
-    console.log("distribution of active bands memberships per musician: " +
+    console.log("distribution of active band memberships per musician: " +
                 tallyActiveProjectMembershipPerPerson(graph));
 
     // let string = ""
     // findPath(graph.getNodeByID(57), graph.getNodeByID(57)).forEach((node) => string += node.name + ", ")
     // console.log(string);
+
+    console.log(countNeighbors(graph.getNodeByID(1)));
 
     console.log("distribution of shortest distances between nodes: "
                 + tallyMinDistances(graph));
