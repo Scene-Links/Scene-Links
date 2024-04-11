@@ -130,8 +130,6 @@ setTimeout(async () => { //wait for construct graph to finish ig. be patient she
     // findPath(graph.getNodeByID(57), graph.getNodeByID(57)).forEach((node) => string += node.name + ", ")
     // console.log(string);
 
-    console.log(countNeighbors(graph.getNodeByID(1)));
-
     console.log("distribution of shortest distances between nodes: "
                 + tallyMinDistances(graph));
 

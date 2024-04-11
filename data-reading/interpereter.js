@@ -52,6 +52,7 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
     setTimeout(() => {
         const bandsFile = readFile("./data/" + bandsFileName, "utf-8", (err, data) => {
             const bands = data.trim().split("+\n").slice(1);
+            
             bands.forEach( (band) => {
                 const fields = band.trim().split('\n');
                 if (!Project.allProjects.has(fields[0])) {
