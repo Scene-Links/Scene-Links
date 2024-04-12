@@ -48,6 +48,12 @@ export function tallyMinDistances(graph, nodeValidator = () => {return true}, co
                         } else {
                             tallies[dist] = 1;
                         }
+                    // } else {
+                    //     if (typeof tallies[100] == "number") {
+                    //         tallies[100] = tallies[100] + 1;
+                    //     } else {
+                    //         tallies[100] = 1;
+                    //     }
                     }
                 }
             });

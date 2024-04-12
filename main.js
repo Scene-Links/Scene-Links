@@ -62,30 +62,68 @@ function listByProject() {
     Array.from(Project.allProjects.values()).forEach( (band) => {
         string += band.name;
 
-        if (band.data.active) {
-            string += " (active)";
-        } else {
-            string += " (inactive)";
-        }
+        // if (band.data.active) {
+        //     string += " (active)";
+        // } else {
+        //     string += " (inactive)";
+        // }
 
-        string += "\n";
-        string += "\t connections: " + findDegree(band);
-        string += "\n";
-        string += "\t active members: " + findDegree(band, (link) => {return (link.type == LinkTypes.Membership && link.presentness == true)});
-        string += "\n";
-        string += "\t connected bands: " + countNeighbors(band);
-        string += "\n"
+        // string += "\n";
+        string += "\t" + findDegree(band); //"\t connections: "
+        // string += "\n";
+        string += "\t" + findDegree(band, (link) => {return (link.type == LinkTypes.Membership && link.presentness == true)}); //"\t active members: "
+        // string += "\n";
+        string += "\t" + countNeighbors(band); //"\t connected bands:"
+        // string += "\n"
 
-        band.links.forEach( (link) => {
-            if (link.presentness == null) {
-                string += link.getNeighbor(band).name + ", " + link.type;
-            } else if (link.presentness) {
-                string += link.getNeighbor(band).name + ", " + link.type + " (present)";
-            } else {
-                string += link.getNeighbor(band).name + ", " + link.type + " (past)";
-            }
-            string += "\n";
-        });
+        // band.links.forEach( (link) => {
+        //     if (link.presentness == null) {
+        //         string += link.getNeighbor(band).name + ", " + link.type;
+        //     } else if (link.presentness) {
+        //         string += link.getNeighbor(band).name + ", " + link.type + " (present)";
+        //     } else {
+        //         string += link.getNeighbor(band).name + ", " + link.type + " (past)";
+        //     }
+        //     string += "\n";
+        // });
+
+
+        string += "\n";;
+    });
+
+    return string;
+}
+
+function listByMember() {
+    let string = "";
+
+    Array.from(Musician.allMusicians.values()).forEach( (musician) => {
+        string += musician.name;
+
+        // if (band.data.active) {
+        //     string += " (active)";
+        // } else {
+        //     string += " (inactive)";
+        // }
+
+        // string += "\n";
+        string += "\t" + findDegree(musician); //"\t connections: "
+        // string += "\n";
+        string += "\t" + findDegree(musician, (link) => {return (link.type == LinkTypes.Membership && link.presentness == true)}); //"\t active members: "
+        // string += "\n";
+        string += "\t" + countNeighbors(musician); //"\t connected bands:"
+        // string += "\n"
+
+        // band.links.forEach( (link) => {
+        //     if (link.presentness == null) {
+        //         string += link.getNeighbor(band).name + ", " + link.type;
+        //     } else if (link.presentness) {
+        //         string += link.getNeighbor(band).name + ", " + link.type + " (present)";
+        //     } else {
+        //         string += link.getNeighbor(band).name + ", " + link.type + " (past)";
+        //     }
+        //     string += "\n";
+        // });
 
 
         string += "\n";;
@@ -103,7 +141,7 @@ constructGraph(graph, "all_nodes.txt", "bands.txt");
 setTimeout(async () => { //wait for construct graph to finish ig. be patient shes got erectile dysfunction
     graph.checkActivityAll();
 
-    // console.log(listByProject());
+    console.log(listByMember());
     console.log(Project.allProjects.size + " projects");
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");

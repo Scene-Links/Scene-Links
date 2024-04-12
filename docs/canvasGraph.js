@@ -22,9 +22,9 @@ const PERFORMED_WITH_LINK_COLOR = "Indigo";
 const LOGO_SIZE = 34; //px
 
 //physics
-const PRESENT_MEMBER_STRENGTH = 0.08;
-const PAST_MEMBER_STRENGTH = 0.06;
-const PERFORMED_WITH_STRENGTH = 0.01;
+const PRESENT_MEMBER_STRENGTH = 144 /1800;
+const PAST_MEMBER_STRENGTH = 108 /1800;
+const PERFORMED_WITH_STRENGTH = 18 /1800;
 const NODE_REPULSION = 18000;
 const BAND_BAND_REPULSION = 8; // multiplied on top of node repulsion
 
@@ -95,7 +95,7 @@ class DrawnNode {
                 const distance = Math.sqrt(differenceX ** 2 + differenceY ** 2);
 
                 if (distance > 3) {
-                    let change = NODE_REPULSION / (distance ** 3) - .00003; // last number is gravity factor or whatever tf
+                    let change = NODE_REPULSION / (distance ** 3) - .00003; // last number is gravity factor or whatever
 
                     if (this.element.type == "Project" && otherDrawnNode.element.type == "Project") {
                         change *= BAND_BAND_REPULSION;
