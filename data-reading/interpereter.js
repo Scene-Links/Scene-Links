@@ -52,6 +52,7 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
     setTimeout(() => {
         const bandsFile = readFile("./data/" + bandsFileName, "utf-8", (err, data) => {
             const bands = data.trim().split("+\n").slice(1);
+            
             bands.forEach( (band) => {
                 const fields = band.trim().split('\n');
                 if (!Project.allProjects.has(fields[0])) {
@@ -88,15 +89,14 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
                 }
                 
                 if (fields[3] != null) {
-                    console.log(fields[3])
                     fields[3].split(',').forEach((personName) => {
-                        console.log(fields[3])
                         if (!Musician.allMusicians.has(personName.trim())) {
                             if(personName != "-") {
                                 throw new Error("name '" + personName.trim() + "' not in " + allNodesFileName);
                             }
                         } else {
-                            bandNode.data.addPerformer(bandNode, Musician.allMusicians.get(personName.trim()), graph);
+                            bandNode.data.checkActivity();
+                            bandNode.data.addPerformer(bandNode, Musician.allMusicians.get(personName.trim()), graph, bandNode.data.activity);
                         }
                     });
                 }
@@ -105,7 +105,7 @@ export function constructGraph(graph, allNodesFileName, bandsFileName) { //, lab
                     bandNode.data.imagePath = fields[4].trim();
                 }
                 
-                graph.addNode(bandNode);
+                // graph.addNode(bandNode);
             });
         });
     }, 50);

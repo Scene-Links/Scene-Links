@@ -1,6 +1,6 @@
 +
 Ear Piercings
-Bea O'Brien, Cas Savage, Marcy Rose, Jon Kinney, Aubrey Marcsisin
+Bea O'Brien, Cas Savage, Marcy Rose, Jon Kinney, Aubrey Marcsisin, Erin Ford, Mae Subramanian
 Ian McFarlane, Brian Phung, Jackson Majewski, Yazz, Joshua Yoder
 Anthony Wilcox, Madeline Wayland
 Ear Piercings.png
@@ -14,8 +14,8 @@ LIKENESS.png
 
 +
 Dark Licorice
-Jackson Majewski, Joshua Yoder, Cas Savage, Anthony Wilcox
--
+Jackson Majewski, Joshua Yoder, Anthony Wilcox
+Cas Savage
 Joris Hoogendoorn, Madeline Wayland
 
 +
@@ -51,13 +51,8 @@ Victor Jam Club
 Jerry Bigg's World Famous Band.png
 
 +
-+2/-3
--
-Bea O'Brien, Maxwell Wakeling, Joshua Yoder, Jackson Majewski, Anthony Wilcox, Cas Savage, Joris Hoogendoorn, Chris, Matt, Gerrit
-
-+
 Freaq
-Brandon, Graden, Ary, Jung, Marcy Rose, Marc
+Brandon, Graden, Ary Rice, Jung, Marcy Rose, Marc
 
 +
 PNKY PKN
@@ -69,10 +64,11 @@ Avyay
 
 +
 No Gumption
-Quincy, Luke, Kenzie
+Quincy, Luke Gerow, Kenzie
 
 +
 Cosmic Microwave Basement
+-
 Kenzie, Cas Savage, Jill
 
 +
@@ -105,6 +101,7 @@ Cas Savage, Lee
 
 +
 West Henrietta Tennis Club
+-
 Joris Hoogendoorn, Fletcher, Liam, Cas Savage
 
 +
@@ -165,7 +162,7 @@ Ira Mercer
 
 +
 Wave Trials
-Luke
+Luke Gerow
 
 +
 Mt. Goose
@@ -229,7 +226,7 @@ Sam Owen, Gabi, Daniel, Ricardo, Greg Jam Club
 
 +
 Black Moss
-Isabelle Nitsch, Kristin Jakosh, Clayton Donahue, Liam M, Quangus C. Fibulon
+Isabelle Nitsch, Kristin Jakosh, Clayton Donahue, Liam M, Nick QCF
 -
 -
 Black Moss.png
@@ -263,8 +260,8 @@ savage henry.jpeg
 
 +
 Putz
-Alex Putz, Kaleb
--
+Kaleb Pendleton, Sam Nix, Nick Russo, Luca Passalacqua
+Alex Hellman
 -
 Putz.png
 
@@ -296,8 +293,8 @@ Rats In Training.png
 
 +
 Page Not Found
-John
-Alex Putz
+-
+Alex Hellman, John, Will, Isaac
 
 +
 Safety Break
@@ -312,15 +309,23 @@ Josh Lindsey, Evan Coppa, Andy Feck, Vincent Fittos, Adam Tully, AJ Claiborne, Z
 
 +
 Picknumberthreemylord
-Quincy
+Quincy, S ODell, D Sweeney, Shola
 
 +
 Dead Pets
-Quincy, Jordan
+Quincy, Jordan Serrano, Christian Ortiz, Kyle Dead Pets
+
++
+Big Nobody
+Kyle Dead Pets, Connor, JT, Jake
 
 +
 Calicuzns
-Jordan
+Jordan Serrano, Christian Ortiz, Juan Ortiz
+
++
+Dreamrot
+Christian Ortiz
 
 +
 Soul Human
@@ -329,7 +334,7 @@ Mikey, Noah, Michael, Conor
 
 +
 Obsidian Star
-Parker, Shane Indecision, Thomas, Bradley
+Parker, Shane Indecision, Thomas Ehlers, Bradley
 -
 -
 Obsidian Star.png
@@ -337,3 +342,47 @@ Obsidian Star.png
 +
 Skitzo
 DJ, Nathan Benjamin, Sam Owen, Maya, Ethan
+
++
+Speedrun
+Marcy Rose, Ary Rice, Raina Pereira, Alex Ruffini
+
++
+Superfund
+Alex Ruffini, Gavin, Mina, Amelia, Simon Superfund
+
++
+Comfort Object
+Molly, Amelia Snyder, David Clapp
+
++
+Goat Farm
+Amelia Snyder
+
++
+Manspread
+Amelia Snyder, Rita Monahan, Althea Gleason, Elizabeth Zusin
+
++
+Fallopian Grooves
+Rita Monahan, Kat Link, Madelyn Stoklosa, Elizabeth Zusin, Amelia Snyder, Danica Rebudiao, Annie Orzen, Jiaxin Ye
+
++
+SweaterVest Arrest
+Nick QCF, Liam M, Jaydon, Kas, Anna Fontaine
+
++
+Alocasia
+Anna Fontaine
+
++
+Devixe
+Q, Bryce Monsell, Liam M, Connor Capizzi
+
++
+In Winters Wake
+Q, Dom, Bryce Monsell, theofficial.tog, kickball_snare
+
++
+Forklift
+Dom, Bryce Monsell
