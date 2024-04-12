@@ -42,6 +42,9 @@ Ian McFarlane, Cas Savage, Yazz
 +
 Public Decency
 Grace, AJ, Natalie, Jaelin, Victor Jam Club
+-
+-
+Public Decency.png
 
 +
 Jerry Bigg's World Famous Band
@@ -53,6 +56,9 @@ Jerry Bigg's World Famous Band.png
 +
 Freaq
 Brandon, Graden, Ary Rice, Jung, Marcy Rose, Marc
+-
+-
+Freaq.png
 
 +
 PNKY PKN
@@ -65,6 +71,9 @@ Avyay
 +
 No Gumption
 Quincy, Luke Gerow, Kenzie
+-
+-
+No Gumption.webp
 
 +
 Cosmic Microwave Basement
@@ -133,6 +142,9 @@ Andy, Drew, Jackson Majewski
 +
 The Kiwis
 Anthony, Simon, Jon, Mike Jam Club
+-
+-
+The Kiwis.jpeg
 
 +
 Retrograde
@@ -150,6 +162,9 @@ Bea O'Brien
 +
 Dockwork
 Brogan, Roman, Miles, Finn, Everett, Aidan
+-
+-
+Dockwork.png
 
 +
 War On Neptune
@@ -167,9 +182,12 @@ Luke Gerow
 +
 Mt. Goose
 Alex Mt Goose, Steve, Shaun
+-
+-
+Mt Goose.jpeg
 
 +
-Cyanotype
+The Djinn
 Nicky, Shaun, Kristy, Remy, Fletcher
 
 +
@@ -243,6 +261,9 @@ Keija Helm, David, Ryan Richter, Max Klot, Michael Reineke, Jack Moreland
 +
 Faith To Fear
 Jay, Skye Carlin, Sam Klein, Mason Wahlers
+-
+-
+Faith To Fear.webp
 
 +
 Slick Mick And The Novatones
@@ -310,18 +331,30 @@ Josh Lindsey, Evan Coppa, Andy Feck, Vincent Fittos, Adam Tully, AJ Claiborne, Z
 +
 Picknumberthreemylord
 Quincy, S ODell, D Sweeney, Shola
+-
+-
+Picknumberthreemylord.jpeg
 
 +
 Dead Pets
 Quincy, Jordan Serrano, Christian Ortiz, Kyle Dead Pets
+-
+-
+Dead Pets.webp
 
 +
 Big Nobody
 Kyle Dead Pets, Connor, JT, Jake
+-
+-
+Big Nobody.jpeg
 
 +
 Calicuzns
 Jordan Serrano, Christian Ortiz, Juan Ortiz
+-
+-
+Calicuzns.webp
 
 +
 Dreamrot
@@ -342,6 +375,9 @@ Obsidian Star.png
 +
 Skitzo
 DJ, Nathan Benjamin, Sam Owen, Maya, Ethan
+-
+-
+Skitzo.png
 
 +
 Speedrun
@@ -366,6 +402,9 @@ Amelia Snyder, Rita Monahan, Althea Gleason, Elizabeth Zusin
 +
 Fallopian Grooves
 Rita Monahan, Kat Link, Madelyn Stoklosa, Elizabeth Zusin, Amelia Snyder, Danica Rebudiao, Annie Orzen, Jiaxin Ye
+-
+-
+Fallopian Grooves.webp
 
 +
 SweaterVest Arrest
