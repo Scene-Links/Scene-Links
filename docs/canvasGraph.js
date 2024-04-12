@@ -75,7 +75,7 @@ class DrawnNode {
         } else { //image
             //image
             const img = new Image();
-            img.src = "../images/"+ this.element.data.imagePath;
+            img.src = "../../images/"+ this.element.data.imagePath;
 
             const real_width = LOGO_SIZE / img.height * img.width;
             ctx.drawImage(img, this.screenX - real_width/2, this.screenY - LOGO_SIZE/2, real_width, LOGO_SIZE);
