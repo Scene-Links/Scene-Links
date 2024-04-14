@@ -63,6 +63,9 @@ Freaq.png
 +
 PNKY PKN
 Will Hagele, Zack Wilson, Izzy Kunde, Ryan Keller, Cristian Malone, Zack Harji, Avyay, Troy, Jeff Gross, Jess Panuccio, Nick Parsons, Shane Guasteferro
+-
+-
+pnkypkn.png
 
 +
 Pig Out
@@ -96,6 +99,9 @@ Alex Dow, Danny Teets,  Josh Grisworld
 +
 The Band Podcast
 Danny Teets, Josh Grisworld, Tristian Weller
+-
+-
+band podcast.png
 
 +
 What Are We Doing
@@ -189,6 +195,9 @@ Mt Goose.jpeg
 +
 The Djinn
 Nicky, Shaun, Kristy, Remy, Fletcher
+-
+-
+The Djinn.png
 
 +
 Among Us Birthday Party
@@ -409,19 +418,34 @@ Fallopian Grooves.webp
 +
 SweaterVest Arrest
 Nick QCF, Liam M, Jaydon, Kas, Anna Fontaine
+-
+-
+sweatervest.png
 
 +
 Alocasia
 Anna Fontaine
+-
+-
+Alocasia.png
 
 +
 Devixe
 Q, Bryce Monsell, Liam M, Connor Capizzi
+-
+-
+Devixe.png
 
 +
 In Winters Wake
 Q, Dom, Bryce Monsell, theofficial.tog, kickball_snare
+-
+-
+winterswake.png
 
 +
 Forklift
 Dom, Bryce Monsell
+-
+-
+forklift.png
