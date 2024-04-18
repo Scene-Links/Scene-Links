@@ -1,18 +1,22 @@
 import {Node} from "./nodes.js";
-import {Project, Musician, Label, Venue} from "./data-custom.js"
+import {Project, Musician, Label, Venue, Show} from "./data-custom.js"
 
 export const LinkTypes = {
     Membership: "member",
     PerformedWith: "performed with",
     PlayedShowTogether: "played show together",
+    CollaboratedOnRecording: "collaborated on recording",
     SignedUnder: "signed under",
     PerformedAt: "performed at",
+    ShowAt: "show at",
     FeaturedOnRecording: "featured on"
 }
 
 export class Link {
     static nextId = 0;
-    constructor(nodeA, nodeB, type, graph, presentness=true) {
+    static allLinks = [];
+
+    constructor(nodeA, nodeB, type, graph, presentness=true, weight=1) {
         this.id = Link.nextId;
         Link.nextId += 1;
 
@@ -21,6 +25,7 @@ export class Link {
         this.graph = graph;
 
         this.type = type;
+        this.weight = weight;
 
         switch (type) {
             case LinkTypes.Membership: // musician -> project
@@ -57,7 +62,7 @@ export class Link {
                 this.directedness = true;
                 break;
 
-            case CollaboratedOnRecording: // musician/project <-> musician/project
+            case LinkTypes.CollaboratedOnRecording: // musician/project <-> musician/project
                 if (! ((nodeA.data instanceof Musician || nodeA.data instanceof Project) &&
                     nodeB.data instanceof Musician || nodeB.data instanceof Project)) {
                     throw new Error("meow");
@@ -66,7 +71,7 @@ export class Link {
                 this.directedness = false;
                 break;
     
-            case SignedUnder: // project -> label
+            case LinkTypes.SignedUnder: // project -> label
                 if (! (nodeA.data instanceof Project && nodeB.data instanceof Label)) {
                     throw new Error("meow");
                 }
@@ -75,9 +80,17 @@ export class Link {
                 this.directedness = true;
                 break;
 
-            case PerformedAt: // musician/project -> venue
-                if (! (nodeA.data instanceof Project && nodeB.data instanceof Venue)) {
+            case LinkTypes.PerformedAt: // musician/project -> show
+                if (! (nodeA.data instanceof Project && nodeB.data instanceof Show)) {
                     throw new Error("meow");
+                }
+
+                this.directedness = true;
+                break;
+
+            case LinkTypes.ShowAt: //show -> venue
+                if (! (nodeA.data instanceof Show && nodeB.data instanceof Venue)) {
+                    throw new Error(nodeA.data.type + nodeB.data.type);
                 }
 
                 this.directedness = true;
@@ -89,6 +102,11 @@ export class Link {
 
         nodeA.addLink(this);
         nodeB.addLink(this);
+
+        nodeA.neighboringNodesToLinks.set(nodeB, this);
+        nodeB.neighboringNodesToLinks.set(nodeA, this);
+        
+        Link.allLinks.push(this);
     }
     
     getNeighbor(currentNode) {

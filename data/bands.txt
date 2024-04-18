@@ -1,13 +1,13 @@
 +
 Ear Piercings
-Bea O'Brien, Cas Savage, Marcy Rose, Jon Kinney, Aubrey Marcsisin, Erin Ford, Mae Subramanian
+O'Brien, Cas Savage, Marcy Rose, Jon Kinney, Aubrey Marcsisin, Erin Ford, Mae Subramanian
 Ian McFarlane, Brian Phung, Jackson Majewski, Yazz, Joshua Yoder
 Anthony Wilcox, Madeline Wayland
 Ear Piercings.png
 
 +
 LIKENESS
-Bea O'Brien, Maxwell Wakeling, Anthony Wilcox, Joris Hoogendoorn
+O'Brien, Maxwell Wakeling, Anthony Wilcox, Joris Hoogendoorn
 Devin
 Cas Savage, Victor Jam Club
 LIKENESS.png
@@ -42,6 +42,9 @@ Ian McFarlane, Cas Savage, Yazz
 +
 Public Decency
 Grace, AJ, Natalie, Jaelin, Victor Jam Club
+-
+-
+Public Decency.png
 
 +
 Jerry Bigg's World Famous Band
@@ -53,10 +56,16 @@ Jerry Bigg's World Famous Band.png
 +
 Freaq
 Brandon, Graden, Ary Rice, Jung, Marcy Rose, Marc
+-
+-
+Freaq.png
 
 +
 PNKY PKN
 Will Hagele, Zack Wilson, Izzy Kunde, Ryan Keller, Cristian Malone, Zack Harji, Avyay, Troy, Jeff Gross, Jess Panuccio, Nick Parsons, Shane Guasteferro
+-
+-
+pnkypkn.png
 
 +
 Pig Out
@@ -65,6 +74,9 @@ Avyay
 +
 No Gumption
 Quincy, Luke Gerow, Kenzie
+-
+-
+No Gumption.webp
 
 +
 Cosmic Microwave Basement
@@ -87,6 +99,9 @@ Alex Dow, Danny Teets,  Josh Grisworld
 +
 The Band Podcast
 Danny Teets, Josh Grisworld, Tristian Weller
+-
+-
+band podcast.png
 
 +
 What Are We Doing
@@ -133,6 +148,9 @@ Andy, Drew, Jackson Majewski
 +
 The Kiwis
 Anthony, Simon, Jon, Mike Jam Club
+-
+-
+The Kiwis.jpeg
 
 +
 Retrograde
@@ -145,11 +163,14 @@ Retrograde.png
 Acephaloid
 Fletcher, Evan, Jackson Rogers
 -
-Bea O'Brien
+O'Brien
 
 +
 Dockwork
 Brogan, Roman, Miles, Finn, Everett, Aidan
+-
+-
+Dockwork.png
 
 +
 War On Neptune
@@ -167,10 +188,16 @@ Luke Gerow
 +
 Mt. Goose
 Alex Mt Goose, Steve, Shaun
+-
+-
+Mt Goose.jpeg
 
 +
-Cyanotype
+The Djinn
 Nicky, Shaun, Kristy, Remy, Fletcher
+-
+-
+The Djinn.png
 
 +
 Among Us Birthday Party
@@ -243,6 +270,9 @@ Keija Helm, David, Ryan Richter, Max Klot, Michael Reineke, Jack Moreland
 +
 Faith To Fear
 Jay, Skye Carlin, Sam Klein, Mason Wahlers
+-
+-
+Faith To Fear.webp
 
 +
 Slick Mick And The Novatones
@@ -310,18 +340,30 @@ Josh Lindsey, Evan Coppa, Andy Feck, Vincent Fittos, Adam Tully, AJ Claiborne, Z
 +
 Picknumberthreemylord
 Quincy, S ODell, D Sweeney, Shola
+-
+-
+Picknumberthreemylord.jpeg
 
 +
 Dead Pets
 Quincy, Jordan Serrano, Christian Ortiz, Kyle Dead Pets
+-
+-
+Dead Pets.webp
 
 +
 Big Nobody
 Kyle Dead Pets, Connor, JT, Jake
+-
+-
+Big Nobody.jpeg
 
 +
 Calicuzns
 Jordan Serrano, Christian Ortiz, Juan Ortiz
+-
+-
+Calicuzns.webp
 
 +
 Dreamrot
@@ -342,6 +384,9 @@ Obsidian Star.png
 +
 Skitzo
 DJ, Nathan Benjamin, Sam Owen, Maya, Ethan
+-
+-
+Skitzo.png
 
 +
 Speedrun
@@ -366,23 +411,41 @@ Amelia Snyder, Rita Monahan, Althea Gleason, Elizabeth Zusin
 +
 Fallopian Grooves
 Rita Monahan, Kat Link, Madelyn Stoklosa, Elizabeth Zusin, Amelia Snyder, Danica Rebudiao, Annie Orzen, Jiaxin Ye
+-
+-
+Fallopian Grooves.webp
 
 +
 SweaterVest Arrest
 Nick QCF, Liam M, Jaydon, Kas, Anna Fontaine
+-
+-
+sweatervest.png
 
 +
 Alocasia
 Anna Fontaine
+-
+-
+Alocasia.png
 
 +
 Devixe
 Q, Bryce Monsell, Liam M, Connor Capizzi
+-
+-
+Devixe.png
 
 +
 In Winters Wake
 Q, Dom, Bryce Monsell, theofficial.tog, kickball_snare
+-
+-
+winterswake.png
 
 +
 Forklift
 Dom, Bryce Monsell
+-
+-
+forklift.png

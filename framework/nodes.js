@@ -7,12 +7,12 @@ export class Node {
         this.name = name;
         this.data = data;
         this.links = [];
+        this.neighboringNodesToLinks = new Map(); //this is only slightly redundant <3333
 
         this.type = data.type;
         this.graph;
 
         data.parentID = this.id;
-        // data.logThisNode(); //call this in graph
     }
 
     setGraph(graph) {

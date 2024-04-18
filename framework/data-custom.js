@@ -12,6 +12,7 @@ export class Project extends Data {
         this.inPlanning = inPlanning;
 
         this.members = 0;
+        this.shows = 0;
         
         this.type = "Project";
     }
@@ -31,8 +32,14 @@ export class Project extends Data {
         }
     }
 
-    addPerformer(parentNode, musician, graph, presentness =true) {
-        new Link(musician, parentNode, LinkTypes.PerformedWith, graph, presentness);
+    addPerformer(parentNode, musician, graph) {
+        new Link(musician, parentNode, LinkTypes.PerformedWith, graph);
+    }
+
+    addShow(parentNode, show, graph) {
+        new Link(parentNode, show, LinkTypes.PerformedAt, graph);
+        
+        this.shows++;
     }
 }
 
@@ -82,6 +89,28 @@ export class Venue extends Data {
 
     logThisNode() {
         Venue.allVenues.set(
+            this.graph.getNodeByID(this.parentID).name,
+            this.graph.getNodeByID(this.parentID)
+            );
+    }
+}
+
+export class Show extends Data {
+    static allShows = new Map();
+
+    constructor(date="", location="", bio="", hasCompleteInfo=true, imagePath="", hyperLinks=[]) {
+        super(location, bio, true, hasCompleteInfo, imagePath, hyperLinks);
+        this.date = date;
+
+        this.type = "Show";
+    }
+
+    addVenue(parent, venue, graph) {
+        new Link(parent, venue, LinkTypes.ShowAt, graph);
+    }
+
+    logThisNode() {
+        Show.allShows.set(
             this.graph.getNodeByID(this.parentID).name,
             this.graph.getNodeByID(this.parentID)
             );

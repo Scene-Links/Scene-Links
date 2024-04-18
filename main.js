@@ -1,60 +1,23 @@
 import {Data, Node} from "./framework/nodes.js"
 import {Project, Musician, Label, Venue} from "./framework/data-custom.js";
-import {constructGraph} from "./data-reading/interpereter.js";
+import {constructGraph, readShowsIn, readShowsShowsModing} from "./data-reading/interpereter.js";
 import { Link, LinkTypes } from "./framework/links.js";
 
 import { findDegree, tallyDegrees, findPath, countNeighbors} from "./processing/processing.js";
 import { tallyActiveMembersPerProject, tallyActiveProjectMembershipPerPerson, tallyMinDistances } from "./processing/statistics.js";
 
 import { writeFileSync } from "fs";
+import { Graph } from "./framework/Graph.js";
 
-const GRAPH_NAME = "__graph__";
+// const jsonPath = "./graph-json/showsGraphButLikeARealGraphThisTimeYK.json";
+// const pairwisePath = "./txt-outs/showsPairwise.txt"
 
+// const jsonPath = "./graph-json/showsGraph.json";
+// const pairwisePath = "./txt-outs/bandsSharingShowsPairwise.txt"
 
-export class Graph {
-    constructor() {
-        this.nodes = [];
-    }
+const jsonPath = "./graph-json/graph.json";
+const pairwisePath = "./txt-outs/bandMembership.txt";
 
-    addNode(node) {
-        node.setGraph(this);
-        this.nodes.push(node);
-
-        node.data.logThisNode();
-    }
-
-    getNodeByID(ID) {
-        if (this.nodes[ID].id == ID) { //assuming no fucky stuff
-            return this.nodes[ID]
-        } else {
-            for (graphNode in this.nodes) { //fucky stuff has ensued
-                if (graphNode.id == ID) {
-                    return graphNode;
-                }
-            }
-        }
-    }
-
-    getString() {
-        return JSON.stringify(graph, (key, value) => {
-            if (key == "") { //looking at the graph as a whole
-                return value;
-            } else {
-                if (value == graph) {
-                    return GRAPH_NAME;
-                } else {
-                    return value;
-                }
-            }
-        });
-    }
-
-    checkActivityAll() {
-        this.nodes.forEach( (node) => {
-            node.data.checkActivity();
-        });
-    }
-}
 
 function listByProject() {
     let string = "";
@@ -134,9 +97,12 @@ function listByMember() {
 
 
 
-export const graph = new Graph();
+const graph = new Graph();
 
 constructGraph(graph, "all_nodes.txt", "bands.txt");
+// readShowsIn(graph, "shows.txt");
+// readShowsShowsModing(graph, "shows.txt");
+
 
 setTimeout(async () => { //wait for construct graph to finish ig. be patient shes got erectile dysfunction
     graph.checkActivityAll();
@@ -146,11 +112,17 @@ setTimeout(async () => { //wait for construct graph to finish ig. be patient she
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");
 
-    writeFileSync('./graph-json/graph.json', graph.getString(), 'utf-8', (err) => {
+    writeFileSync(jsonPath, graph.getString(), 'utf-8', (err) => {
             if (err) throw err;
         }
     );
-    console.log('Data added to file');
+
+    writeFileSync(pairwisePath, graph.getPairwiseString(), 'utf-8', (err) => {
+        if (err) throw err;
+    }
+);
+
+    console.log('Data added to files');
 
     console.log("distribution of connections per musician: " +
                 tallyDegrees(graph, (node) => {return node.data instanceof Musician}));
@@ -163,10 +135,6 @@ setTimeout(async () => { //wait for construct graph to finish ig. be patient she
 
     console.log("distribution of active band memberships per musician: " +
                 tallyActiveProjectMembershipPerPerson(graph));
-
-    // let string = ""
-    // findPath(graph.getNodeByID(57), graph.getNodeByID(57)).forEach((node) => string += node.name + ", ")
-    // console.log(string);
 
     console.log("distribution of shortest distances between nodes: "
                 + tallyMinDistances(graph));
