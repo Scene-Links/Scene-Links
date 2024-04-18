@@ -88,7 +88,10 @@ class DrawnNode {
             // console.log(this.screenX)
 
         } else { //image
-            img.src = "../../images/"+ this.element.data.imagePath;
+            //image
+            // const img = new Image();
+            
+            // img.src = "../../images/"+ this.element.data.imagePath;
             const img = images.get(this.element.data.imagePath);
 
 
