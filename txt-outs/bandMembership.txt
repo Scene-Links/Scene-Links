@@ -1,4 +1,4 @@
-1_Bea_O'Brien	Musician	224_Ear_Piercings	Project	1
+1_O'Brien	Musician	224_Ear_Piercings	Project	1
 0_Cas_Savage	Musician	224_Ear_Piercings	Project	1
 17_Marcy_Rose	Musician	224_Ear_Piercings	Project	1
 48_Jon_Kinney	Musician	224_Ear_Piercings	Project	1
@@ -12,7 +12,7 @@
 3_Joshua_Yoder	Musician	224_Ear_Piercings	Project	1
 2_Anthony_Wilcox	Musician	224_Ear_Piercings	Project	1
 20_Madeline_Wayland	Musician	224_Ear_Piercings	Project	1
-1_Bea_O'Brien	Musician	225_LIKENESS	Project	1
+1_O'Brien	Musician	225_LIKENESS	Project	1
 6_Maxwell_Wakeling	Musician	225_LIKENESS	Project	1
 2_Anthony_Wilcox	Musician	225_LIKENESS	Project	1
 7_Joris_Hoogendoorn	Musician	225_LIKENESS	Project	1
@@ -146,7 +146,7 @@
 21_Fletcher	Musician	251_Acephaloid	Project	1
 25_Evan	Musician	251_Acephaloid	Project	1
 24_Jackson_Rogers	Musician	251_Acephaloid	Project	1
-1_Bea_O'Brien	Musician	251_Acephaloid	Project	1
+1_O'Brien	Musician	251_Acephaloid	Project	1
 185_Brogan	Musician	252_Dockwork	Project	1
 187_Roman	Musician	252_Dockwork	Project	1
 186_Miles	Musician	252_Dockwork	Project	1

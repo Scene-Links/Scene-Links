@@ -9,7 +9,14 @@ import { tallyActiveMembersPerProject, tallyActiveProjectMembershipPerPerson, ta
 import { writeFileSync } from "fs";
 import { Graph } from "./framework/Graph.js";
 
-const filePathToWriteTo = "./txt-outs/bandMembership.txt";
+// const jsonPath = "./graph-json/showsGraphButLikeARealGraphThisTimeYK.json";
+// const pairwisePath = "./txt-outs/showsPairwise.txt"
+
+// const jsonPath = "./graph-json/showsGraph.json";
+// const pairwisePath = "./txt-outs/bandsSharingShowsPairwise.txt"
+
+const jsonPath = "./graph-json/graph.json";
+const pairwisePath = "./txt-outs/bandMembership.txt";
 
 
 function listByProject() {
@@ -105,12 +112,17 @@ setTimeout(async () => { //wait for construct graph to finish ig. be patient she
     console.log(Musician.allMusicians.size + " musicians");
     console.log(Link.nextId - 1 + " links");
 
-    writeFileSync(filePathToWriteTo, graph.getPairwiseString(), 'utf-8', (err) => {
+    writeFileSync(jsonPath, graph.getString(), 'utf-8', (err) => {
             if (err) throw err;
         }
     );
 
-    console.log('Data added to file');
+    writeFileSync(pairwisePath, graph.getPairwiseString(), 'utf-8', (err) => {
+        if (err) throw err;
+    }
+);
+
+    console.log('Data added to files');
 
     console.log("distribution of connections per musician: " +
                 tallyDegrees(graph, (node) => {return node.data instanceof Musician}));
