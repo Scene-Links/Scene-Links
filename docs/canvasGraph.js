@@ -1,7 +1,7 @@
 // this section is bs xoxoxo i dont know how to code
-var graph;
-function fetchJSONData() {
-    fetch("../graph-json/graph.json")
+let graph = {};
+async function fetchJSONData() {
+   await fetch("../graph-json/graph.json")
         .then((res) => {
             if (!res.ok) {
                 throw new Error
@@ -14,10 +14,9 @@ function fetchJSONData() {
         .catch((error) => 
                console.error("Unable to fetch data:", error));
 
+
 }
 fetchJSONData();
-
-
 
 
 
@@ -307,7 +306,9 @@ function initializeLink(link) { //sets up, does not draw
 //     infoText.textContext = `FPS: ${Math.round(1000 / dt)}`;
 // }
 
-function initialize() {
+async function initialize() {
+ 
+    await fetchJSONData();
 
     for (let i = 0; i < graph.nodes.length; i++) {
         const node = graph.nodes[i];
@@ -362,8 +363,10 @@ let startTime, previousTimestamp, timeElapsed;
 let animationComplete = false;
 
 function render(timestamp) {
+    
     if (startTime === undefined) { //first frame
         startTime = timestamp;
+          
         initialize();
     }
 
