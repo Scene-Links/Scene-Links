@@ -21,3 +21,11 @@
     border: 2px solid #008CBA;
     color: #008CBA;
 }
+
+#legendBody {
+    font-family: monospace;
+    font-size: 12pt;
+    position:fixed;
+    bottom:0;
+    left:0;
+}
