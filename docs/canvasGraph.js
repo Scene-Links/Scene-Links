@@ -1,5 +1,5 @@
 // this section is bs xoxoxo i dont know how to code
-let graph;
+var graph;
 function fetchJSONData() {
     fetch("../graph-json/graph.json")
         .then((res) => {
@@ -10,11 +10,14 @@ function fetchJSONData() {
             return res.json();
         })
         .then((data) => 
-              graph = data)
+              {graph = data;})
         .catch((error) => 
                console.error("Unable to fetch data:", error));
+
 }
 fetchJSONData();
+
+
 
 
 
